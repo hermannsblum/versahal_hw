@@ -4,44 +4,41 @@ VersaVIS Board package for arduino IDE
 * To use, add https://github.com/ethz-asl/versavis_hw/raw/master/package_VersaVIS_index.json in Arduino IDE -> File -> Preferences -> Additional Boards Manager URLs.
 * Add the VersaVIS board to the board manager (Tools -> Board -> Board Manager)
 
-## Pinout for VersaVIS 1.0 and VersaVIS 1.1
-based on [this](https://docs.google.com/spreadsheets/d/1Ky8IHlCCgtuCESapGA7kTjg_rHfAfQyLWzFp4BHC_iQ/edit#gid=0)
+## Pinout for VersaHAL 0.1
+
 
 | Port ||        Pin      ||||                                     | Periphery |
 |------|--------|----------|------|-----------|---------|----------|-----------|
-| Port | Number | Physical | Kind | Direction | Logical | Function |           |
-| A    | 14     | 23       | D    | O         | 2       | DAUX1    | AUX       |
-| A    | 04     | 9        | A    | I         | 17      | AAUX1    | AUX       |
-| A    | 05     | 10       | A    | I         | 18      | AAUX2    | AUX       |
-| A    | 27     | 39       | D    | O         | 26      | DAUX2    | AUX       |
-| A    | 15     | 24       | D    | I         | 5       | ExpC0    | CAM0      |
-| A    | 02     | 3        | D    | O         | 14      | TrigC0   | CAM0      |
-| A    | 20     | 29       | D    | I         | 6       | ExpC1    | CAM1      |
-| B    | 08     | 7        | D    | O         | 15      | TrigC1   | CAM1      |
-| A    | 21     | 30       | D    | I         | 7       | ExpC2    | CAM2      |
-| B    | 09     | 8        | D    | O         | 16      | TrigC2   | CAM2      |
-| A    | 11     | 11       | D    | I         | 3       | PPS      | GPS       |
-| A    | 10     | 15       | D    | I         | 4       | ExtClk   | GPS       |
-| A    | 22     | 31       | D    | IO        | 20      | SDA      | I2C       |
-| A    | 23     | 32       | D    | O         | 21      | SCL      | I2C       |
-| A    | 30     | 45       | D    | I         | 44      | SWCLK    | PROG      |
-| A    | 31     | 46       | D    | IO        | 45      | SWDIO    | PROG      |
-| A    | 18     | 27       | D    | O         | 10      | SS1      | SPI1      |
-| A    | 12     | 21       | D    | I         | 22      | MISO1    | SPI1      |
-| B    | 10     | 19       | D    | O         | 23      | MOSI1    | SPI1      |
-| B    | 11     | 20       | D    | O         | 24      | SCK1     | SPI1      |
-| A    | 13     | 22       | D    | I         | 38      | DR1      | SPI1      |
-| A    | 06     | 11       | D    | O         | 8       | SS2      | SPI2      |
-| A    | 07     | 12       | D    | I         | 9       | DR2      | SPI2      |
-| A    | 16     | 25       | D    | O         | 11      | MOSI2    | SPI2      |
-| A    | 19     | 28       | D    | I         | 12      | MISO2    | SPI2      |
-| A    | 17     | 26       | D    | O         | 13      | SCK2     | SPI2      |
+| Port | Number | Physical | Kind | Direction | SERCOM  | Function |           |
+|      |        |          |      |           |         | DAUX1    | AUX       |
+|      |        |          |      |           |         | AAUX1    | AUX       |
+|      |        |          |      |           |         | AAUX2    | AUX       |
+|      |        |          |      |           |         | DAUX2    | AUX       |
+| A    | 05     | 10       | D    | I         |         | ExpC1    | CAM1      |
+| A    | 04     | 9        | D    | O         |         | TrigC1   | CAM1      |
+| A    | 07     | 12       | D    | I         |         | ExpC2    | CAM2      |
+| A    | 06     | 11       | D    | O         |         | TrigC2   | CAM2      |
+| A    | 27     | 39       | D    | I         |         | PPS      | GPS       |
+|      |        |          |      |           |         | ExtClk   | GPS       |
+| A    | 22     | 31       | D    | IO        | 5       | SDA      | I2C       |
+| A    | 23     | 32       | D    | O         | 5       | SCL      | I2C       |
+| A    | 30     | 45       | D    | I         |         | SWCLK    | PROG      |
+| A    | 31     | 46       | D    | IO        |         | SWDIO    | PROG      |
+| A    | 15     | 24       | D    | O         | 1       | SS1      | SPI1      |
+| A    | 13     | 22       | D    | I         | 1       | MISO1    | SPI1      |
+| A    | 14     | 23       | D    | O         | 1       | MOSI1    | SPI1      |
+| A    | 12     | 21       | D    | O         | 1       | SCK1     | SPI1      |
+| A    | 19     | 28       | D    | I         | 1       | DR1      | SPI1      |
 | A    | 00     | 1        | S    |           |         | XTAL     | System    |
 | A    | 01     | 2        | S    |           |         | XTAL     | System    |
-| A    | 09     | 14       | D    | I         | 0       | RX1      | UART1     |
-| A    | 08     | 13       | D    | O         | 1       | TX1      | UART1     |
-| B    | 22     | 37       | D    | O         | 30      | TX2      | UART2     |
-| B    | 23     | 38       | D    | I         | 31      | RX2      | UART2     |
-| A    | 28     | 41       | D    | O         | 27      | USB_HE   | USB       |
-| A    | 24     | 33       | D    | IO        | 28      | USB-     | USB       |
-| A    | 25     | 34       | D    | IO        | 29      | USB+     | USB       
+| B    | 03     | 48       | D    | I         | 5       | RX2      | UART      |
+| B    | 02     | 47       | D    | O         | 5       | TX2      | UART      |
+| B    | 08     | 7        | D    | O         | 4       | TX1      | DIST1     |
+| B    | 09     | 8        | D    | I         | 4       | RX1      | DIST1     |
+| A    | 08     | 13       | D    | O         | 2       | TX3      | DIST2     |
+| A    | 09     | 14       | D    | I         | 2       | RX3      | DIST2     |
+| A    | 16     | 25       | D    | O         | 3       | TX4      | DIST3     |
+| A    | 17     | 26       | D    | I         | 3       | RX4      | DIST3     |
+| A    | 21     | 30       | D    | O         |         | USB_HE   | USB       |
+| A    | 24     | 33       | D    | IO        |         | USB-     | USB       |
+| A    | 25     | 34       | D    | IO        |         | USB+     | USB       
